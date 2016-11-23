@@ -7,7 +7,7 @@ This gem allows you to clone your development database.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'db_clone'
+gem 'db_clone', group: :development, git: 'https://github.com/gigorok/db_clone.git'
 ```
 
 And then execute:
@@ -26,7 +26,7 @@ rake db:clone[your_new_database_name]
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/db_clone. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/gigorok/db_clone. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
