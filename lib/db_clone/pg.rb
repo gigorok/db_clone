@@ -1,19 +1,20 @@
 module DbClone
   class Pg
 
-    attr_accessor :conf, :env
+    attr_accessor :conf, :env, :new_db_name
 
     ADAPTERS = ['postgresql'].freeze
 
-    def initialize(conf, env)
+    def initialize(conf, new_db_name, env)
       @conf = conf
+      @new_db_name = new_db_name
       @env = env
 
       set_psql_env
     end
 
     def applicable?
-      env['adapter'].in?(ADAPTERS)
+      ADAPTERS.include?(conf['adapter'])
     end
 
     # command to clone database
@@ -24,11 +25,6 @@ module DbClone
     # command to create new database
     def create_db_cmd!
       "createdb -e #{new_db_name}"
-    end
-
-    # new database name
-    def new_db_name
-      env['DB_NAME']
     end
 
     private

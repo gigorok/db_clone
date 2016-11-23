@@ -1,12 +1,13 @@
 module DbClone
   class MySql
 
-    attr_accessor :conf, :env
+    attr_accessor :conf, :env, :new_db_name
 
     ADAPTERS = ['mysql', 'mysql2'].freeze
 
-    def initialize(conf, env)
+    def initialize(conf, new_db_name, env)
       @conf = conf
+      @new_db_name = new_db_name
       @env = env
     end
 
@@ -19,13 +20,8 @@ module DbClone
       # TODO:
     end
 
-    # new database name
-    def new_db_name
-      env['DB_NAME']
-    end
-
     def applicable?
-      env['adapter'].in?(ADAPTERS)
+      ADAPTERS.include?(conf['adapter'])
     end
 
 

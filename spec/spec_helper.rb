@@ -1,2 +1,8 @@
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "db_clone"
+require 'rubygems'
+require 'bundler/setup'
+
+# our gem
+require 'db_clone'
+
+RSpec.configure do |config|
+end
