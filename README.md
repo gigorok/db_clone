@@ -1,6 +1,13 @@
 # DbClone
 
 This gem allows you to clone your development database.
+This can be useful in case if you have to switch to new issue that will critically influent to your development database structure. And if you want to step back and develop something other.
+So before developing this critical issue you run 
+```bash
+rake db:clone[new_database_name]
+```
+and put the new database name into your database.yml development section.
+Then when you need to switch a context into a new issue (not related with previous) you have to just put an old database name into database.yml development section.
 
 ## Installation
 
